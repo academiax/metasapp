@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import Encabezamiento from './componentes/compartidos/Encabezamiento';
+import Pie from './componentes/compartidos/Pie';
+import Principal from './componentes/compartidos/Principal';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Encabezamiento></Encabezamiento>
+      <Principal></Principal>
+      <Pie></Pie>
     </div>
   );
 }
