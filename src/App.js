@@ -1,20 +1,20 @@
+import { Routes, Route } from 'react-router';
 import './App.css';
-import Encabezado from './componentes/compartidos/Encabezado';
-import Pie from './componentes/compartidos/Pie';
-import Principal from './componentes/compartidos/Principal';
+import Layout from './componentes/compartidos/Layout';
+import NoEncontrado from './componentes/compartidos/NoEncontrado';
 import Lista from './componentes/lista/Lista';
 import Detalles from './componentes/nueva/Detalles';
 
 function App() {
   return (
-    <div className="App">
-      <Encabezado></Encabezado>
-      <Principal>
-        {/* <Lista></Lista> */}
-        <Detalles></Detalles>
-      </Principal>
-      <Pie></Pie>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />} >
+        <Route index element={<Lista />} />
+        <Route path="/lista" element={<Lista />} />
+        <Route path="/nueva" element={<Detalles />} />
+      </Route>
+      <Route path="*" element={<NoEncontrado />} />
+    </Routes>
   );
 }
 
