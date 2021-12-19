@@ -14,8 +14,10 @@ function App() {
   const [, enviar] = useContext(Contexto);
 
   useEffect(async () => {
-    const metas = await pedirMetas();
-    enviar({ tipo: 'colocar', metas });
+    (async function () {
+      const metas = await pedirMetas();
+      enviar({ tipo: 'colocar', metas });
+    })();
   }, []);
 
   return (
