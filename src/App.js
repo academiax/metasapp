@@ -1,3 +1,4 @@
+import React from 'react';
 import { useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router';
 import './App.css';

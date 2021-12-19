@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom';
 import estilos from './Meta.module.css';
 
-function Meta({ id, icono, eventos, periodo, detalles, meta, completado }) {
+interface MetaProps {
+    id: number;
+    icono: string;
+    eventos: number;
+    periodo: number;
+    detalles: string;
+    meta: number;
+    completado: number;
+}
+
+function Meta({ id, icono, eventos, periodo, detalles, meta, completado }: MetaProps) {
     return (
         <Link to={`/lista/${id}`} className={estilos.meta + " tarjeta"}>
             <div className="flex items-center">

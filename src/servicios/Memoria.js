@@ -1,3 +1,4 @@
+import React from 'react';
 import { createContext, useReducer } from "react";
 
 // const memoria = localStorage.getItem('metas');
@@ -21,7 +22,7 @@ function reductor(estado, accion) {
             };
             // localStorage.setItem('metas', JSON.stringify(nuevoEstado))
             return nuevoEstado;
-        };
+        }
         case 'crear': {
             const id = accion.meta.id; // String(Math.random());
             const nuevoEstado = {
@@ -33,7 +34,7 @@ function reductor(estado, accion) {
             };
             // localStorage.setItem('metas', JSON.stringify(nuevoEstado))
             return nuevoEstado;
-        };
+        }
         case 'actualizar': {
             const id = accion.meta.id;
             estado.objetos[id] = {
@@ -43,7 +44,7 @@ function reductor(estado, accion) {
             const nuevoEstado = { ...estado };
             // localStorage.setItem('metas', JSON.stringify(nuevoEstado))
             return nuevoEstado;
-        };
+        }
         case 'borrar': {
             const id = accion.id;
             const nuevoOrden = estado.orden.filter(item => item !== id);
@@ -54,7 +55,7 @@ function reductor(estado, accion) {
             };
             // localStorage.setItem('metas', JSON.stringify(nuevoEstado))
             return nuevoEstado;
-        };
+        }
         default:
             throw new Error();
     }

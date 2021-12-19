@@ -1,3 +1,4 @@
+import React from 'react';
 import estilos from './Principal.module.css';
 import Vinculo from './Vinculo';
 import { ReactComponent as ListaSVG } from '../../img/lista.svg';
