@@ -1,17 +1,12 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { MetaTipo } from '../../tipos/MetaTipo';
 import estilos from './Meta.module.css';
 
-interface MetaProps {
-    id: number;
-    icono: string;
-    eventos: number;
-    periodo: number;
-    detalles: string;
-    meta: number;
-    completado: number;
-}
+interface MetaProps extends MetaTipo {}
 
 function Meta({ id, icono, eventos, periodo, detalles, meta, completado }: MetaProps) {
+    console.log(id)
     return (
         <Link to={`/lista/${id}`} className={estilos.meta + " tarjeta"}>
             <div className="flex items-center">

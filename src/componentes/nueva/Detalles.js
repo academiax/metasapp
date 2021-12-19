@@ -38,25 +38,28 @@ function Detalles() {
         setForm(metaMemoria);
     }, [id, metaMemoria, navegar]);
 
-    const crear = async () => {
-        const nuevaMeta = await crearMeta();
-        enviar({ tipo: 'crear', meta: nuevaMeta });
-        navegar('/lista');
+    const enCrear = async (evento) => {
+        evento.preventDefault();
+        const meta = await crearMeta(form);
+        enviar({ tipo: 'crear', meta });
+        regresar();
     }
 
-    const actualizar = async  () => {
-        const metaActualizada = await actualizarMeta();
-        enviar({ tipo: 'actualizar', meta: metaActualizada });
-        navegar('/lista');
+    const enActualizar = async (evento) => {
+        evento.preventDefault();
+        const meta = await actualizarMeta(form);
+        enviar({ tipo: 'actualizar', meta });
+        regresar();
     }
 
-    const borrar = async () => {
-        const idBorrada = await borrarMeta();
-        enviar({ tipo: 'borrar', id: idBorrada });
-        navegar('/lista');
+    const enBorrar = async () => {
+        const id = form.id;
+        await borrarMeta(id);
+        enviar({ tipo: 'borrar', id });
+        regresar();
     }
 
-    const cancelar = () => {
+    const regresar = () => {
         navegar('/lista');
     }
 
@@ -134,19 +137,19 @@ function Detalles() {
             <div className={estilos.botones}>
                 {!id && <button
                     className="boton boton--negro"
-                    onClick={crear}
+                    onClick={enCrear}
                 >Crear</button>}
                 {id && <button
                     className="boton boton--negro"
-                    onClick={actualizar}
+                    onClick={enActualizar}
                 >Actualizar</button>}
                 {id && <button
                     className="boton boton--rojo"
-                    onClick={borrar}
+                    onClick={enBorrar}
                 >Borrar</button>}
                 <button
                     className="boton boton--gris"
-                    onClick={cancelar}
+                    onClick={regresar}
                 >Cancelar</button>
             </div>
         </div>
