@@ -2,8 +2,7 @@ import React from 'react';
 import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router";
 import { Contexto } from "../../servicios/Memoria";
-import { actualizarMeta, borrarMeta, crearMeta } from "../../servicios/Pedidos";
-import estilos from "./Detalles.module.css";
+import { actualizarMeta, borrarMeta, crearMeta } from "../../servicios/Metas";
 function Detalles() {
 
     const { id } = useParams();
@@ -134,7 +133,7 @@ function Detalles() {
                     </select>
                 </label>
             </form>
-            <div className={estilos.botones}>
+            <div className="botones">
                 {!id && <button
                     className="boton boton--negro"
                     onClick={enCrear}
