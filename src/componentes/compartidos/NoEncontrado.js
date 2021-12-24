@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function NoEncontrado() {
-    return (<p>No Encontrado</p>);
+  return <p>No Encontrado</p>;
 }
 
 export default NoEncontrado;
