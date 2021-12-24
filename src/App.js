@@ -6,7 +6,6 @@ import Acceso from './componentes/acceso/Acceso';
 import Layout from './componentes/compartidos/Layout';
 import Modal from './componentes/compartidos/Modal';
 import NoEncontrado from './componentes/compartidos/NoEncontrado';
-import Pie from './componentes/compartidos/Pie';
 import Lista from './componentes/lista/Lista';
 import Detalles from './componentes/nueva/Detalles';
 import { Contexto } from './servicios/Memoria';
