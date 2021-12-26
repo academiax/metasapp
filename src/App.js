@@ -14,12 +14,12 @@ import { pedirMetas } from "./servicios/Metas";
 function App() {
   const [, enviar] = useContext(Contexto);
 
-  useEffect(async () => {
+  useEffect( () => {
     (async function () {
       const metas = await pedirMetas();
       enviar({ tipo: "colocar", metas });
     })();
-  }, []);
+  }, [enviar]);
 
   return (
     <Routes>

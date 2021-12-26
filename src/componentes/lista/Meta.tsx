@@ -14,7 +14,6 @@ function Meta({
   meta,
   completado,
 }: MetaProps) {
-  console.log(id);
   return (
     <Link to={`/lista/${id}`} className={estilos.meta + " tarjeta"}>
       <div className="flex items-center">
