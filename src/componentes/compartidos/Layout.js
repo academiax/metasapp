@@ -1,16 +1,21 @@
 import React from "react";
 import { Outlet } from "react-router";
+import Aside from "./Aside";
 import Encabezado from "./Encabezado";
 import Pie from "./Pie";
-import Principal from "./Principal";
+import estilos from "./Layout.module.css";
 
-function Layout() {
+function Layout({ privado }) {
+
   return (
     <>
       <Encabezado></Encabezado>
-      <Principal>
-        <Outlet></Outlet>
-      </Principal>
+      <main className={estilos.main}>
+        {privado && <Aside />}
+        <section className={estilos.section}>
+          <Outlet></Outlet>
+        </section>
+      </main>
       <Pie></Pie>
     </>
   );

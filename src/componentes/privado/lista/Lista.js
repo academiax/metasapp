@@ -1,16 +1,16 @@
 import React from "react";
 import { useContext } from "react";
 import { Outlet } from "react-router";
-import { Contexto } from "../../servicios/Memoria";
+import { ContextoMetas } from "../../../memoria/Metas";
 import Meta from "./Meta";
 
 function Lista() {
-  const [estado] = useContext(Contexto);
+  const [metas] = useContext(ContextoMetas);
 
   return (
     <>
-      {estado.orden.map((id) => (
-        <Meta key={id} {...estado.objetos[id]}></Meta>
+      {metas.orden.map((id) => (
+        <Meta key={id} {...metas.objetos[id]}></Meta>
       ))}
       <Outlet />
     </>

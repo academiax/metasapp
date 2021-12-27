@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect, useState, useContext } from "react";
 import { useNavigate, useParams } from "react-router";
-import { Contexto } from "../../servicios/Memoria";
-import { actualizarMeta, borrarMeta, crearMeta } from "../../servicios/Metas";
+import { ContextoMetas } from "../../../memoria/Metas";
+import { actualizarMeta, borrarMeta, crearMeta } from "../../../servicios/Metas";
 function Detalles() {
   const { id } = useParams();
 
@@ -16,7 +16,7 @@ function Detalles() {
     completado: 0,
   });
 
-  const [estado, enviar] = useContext(Contexto);
+  const [estado, enviar] = useContext(ContextoMetas);
 
   const { detalles, eventos, periodo, icono, meta, plazo, completado } = form;
 

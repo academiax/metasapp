@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MetaTipo } from "../../tipos/MetaTipo";
+import { MetaTipo } from "../../../tipos/MetaTipo";
 import estilos from "./Meta.module.css";
 
 interface MetaProps extends MetaTipo {}

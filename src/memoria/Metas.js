@@ -14,7 +14,6 @@ const estadoInicial = {
 function reductor(estado, accion) {
   switch (accion.tipo) {
     case "colocar": {
-      console.log(accion);
       const metas = accion.metas;
       const nuevoEstado = {
         orden: metas.map((meta) => meta.id),
@@ -64,13 +63,13 @@ function reductor(estado, accion) {
   }
 }
 
-export const Contexto = createContext(null);
+export const ContextoMetas = createContext(null);
 
-function Memoria({ children }) {
-  const [estado, enviar] = useReducer(reductor, estadoInicial);
+function MetasMemoria({ children }) {
+  const value = useReducer(reductor, estadoInicial);
   return (
-    <Contexto.Provider value={[estado, enviar]}>{children}</Contexto.Provider>
+    <ContextoMetas.Provider value={value}>{children}</ContextoMetas.Provider>
   );
 }
 
-export default Memoria;
+export default MetasMemoria;

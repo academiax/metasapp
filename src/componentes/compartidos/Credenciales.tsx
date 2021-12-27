@@ -1,14 +1,19 @@
 import React, { ChangeEvent, useState } from "react";
-import Encabezado from "../compartidos/Encabezado";
-import Pie from "../compartidos/Pie";
+import estilos from "./Credenciales.module.css";
 
-function Acceso() {
+interface CredencialesProps {
+  enviar: Function;
+  titulo: string;
+  boton: string;
+}
+
+function Credenciales({ enviar, titulo, boton }: CredencialesProps) {
   const [form, setForm] = useState({
-    email: "",
+    usuario: "",
     clave: "",
   });
 
-  const { email, clave } = form;
+  const { usuario, clave } = form;
 
   const onChange = (event: ChangeEvent, prop: string) => {
     const value = (event.target as HTMLInputElement).value;
@@ -19,21 +24,20 @@ function Acceso() {
     evento: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     evento.preventDefault();
-    console.log(form);
-    // const meta = await crearMeta(form);
-    // enviar({ tipo: 'crear', meta });
+    enviar(form);
   };
 
   return (
-    <div className="tarjeta auth">
+    <div className={'tarjeta ' + estilos.auth}>
+      <h1 className={estilos.head}>{titulo}</h1>
       <form className="p-4">
         <label className="label">
-          Email
+          usuario
           <input
             className="input"
             placeholder="Escribe tu email"
-            value={email}
-            onChange={(e) => onChange(e, "email")}
+            value={usuario}
+            onChange={(e) => onChange(e, "usuario")}
           />
         </label>
         <label className="label">
@@ -48,11 +52,11 @@ function Acceso() {
       </form>
       <div className="botones">
         <button className="boton boton--negro" onClick={(e) => enAcceder(e)}>
-          Acceder
+          {boton}
         </button>
       </div>
     </div>
   );
 }
 
-export default Acceso;
+export default Credenciales;
